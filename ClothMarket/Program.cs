@@ -2,6 +2,9 @@
 using ClothMarket.DAL;
 using ClothMarket.DAL.Interfaces;
 using ClothMarket.DAL.Repositories;
+using ClothMarket.Domain.Entity;
+using ClothMarket.Service.Implementations;
+using ClothMarket.Service.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,7 +15,8 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
-builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<IRepository<Product>, ProductRepository>();
+builder.Services.AddScoped<IProductService, ProductService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

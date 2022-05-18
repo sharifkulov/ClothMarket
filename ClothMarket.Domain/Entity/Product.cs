@@ -17,5 +17,6 @@ namespace ClothMarket.Domain.Entity
         public decimal Price { get; set; }
         public DateTime DateCreate { get; set; }
         public Category Category { get; set; }
+        public byte[]? Avatar { get; set; }
     }
 }

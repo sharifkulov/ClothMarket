@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ClothMarket.DAL.Repositories
 {
-    public class ProductRepository : IProductRepository
+    public class ProductRepository : IRepository<Product>
     {
         private readonly ApplicationDbContext _context;
 
@@ -18,35 +18,22 @@ namespace ClothMarket.DAL.Repositories
             _context = context;
         }
 
-        public async Task<bool> Create(Product entity)
+        public async Task Create(Product entity)
         {
             await _context.Product.AddAsync(entity);
             await _context.SaveChangesAsync();
-            return true;
+            
         }
 
-        public async Task<bool> Delete(Product entity)
+        public async Task Delete(Product entity)
         {
 
             _context.Product.Remove(entity);
             await _context.SaveChangesAsync();
-            //???
-            return true;
         }
-
-        public async Task<Product> Get(int id)
+        public IQueryable<Product> GetAll()
         {
-            return await _context.Product.FirstOrDefaultAsync(x => x.Id == id);
-        }
-
-        public async Task<Product> GetByName(string name)
-        {
-            return await _context.Product.FirstOrDefaultAsync(x => x.Name == name);
-        }
-
-        public async Task<List<Product>> Select()
-        {
-            return await _context.Product.ToListAsync();
+            return _context.Product;
         }
 
         public async Task<Product> Update(Product entity)

@@ -1,10 +1,101 @@
-﻿
-@{
-    ViewData["Title"] = "Home Page";
+﻿@{
+    ViewData["Title"] = "Главная";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div style="padding: 10px;"></div>
+<div class="card col-md-12">
+  <div class="card-body">
+    <h5 class="card-title text-center">Добро пожаловать на сайт RustamMarket</h5>
+    <p class="card-text">
+      На этом сайте вы сможете Купить одежду на любой вкус
+    </p>
+    <p class="card-text"><small class="text-muted">RustamMarket</small></p>
+  </div>
+</div>
+<div style="padding: 10px;"></div>
+<div class="row row-cols-1 row-cols-md-3 g-4">  
+    <div class="col">
+      <div class="card h-100">
+        <img src="https://img.alicdn.com/imgextra/i1/1785908005/O1CN01OrwV4z290L3QaKuby_!!0-item_pic.jpg" class="card-img-top card-image"/>
+        <div class="card-body text-center">
+          <h5 class="card-title">Трусы Adidas</h5>
+          <p class="card-text">Вы можете купить наши трусы в черном и многих других цветах.</p>
+        </div>
+        <div class="card-footer text-center">
+          <a asp-controller="Car" asp-action="GetCars" class="card-link">Список одежды</a>
+        </div>
+      </div>
+    </div>  
+  <div class="col">
+    <div class="card h-100">
+      <img src="https://a.allegroimg.com/original/11c8c2/a352d34a491ea13db2d9817d0d61/Kurtka-Nike-Y-Academy-18-893819-010-M-137-147CM" class="card-img-top card-image"/>
+      <div class="card-body text-center">
+        <h5 class="card-title">Крутая куртка NICE</h5>
+        <p class="card-text">
+          Вы можете купить крутые куртки в нашем магазине
+        </p>
+      </div>
+      <div class="card-footer text-center">
+        <a asp-controller="Car" asp-action="GetCars" class="card-link">Список одеждын</a>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100">
+      <img src="https://kemerovo.allithave.ru/image/product-images/2021/04/08/05/47/3621497_0.jpg" class="card-img-top card-image"/>
+      <div class="card-body text-center">
+        <h5 class="card-title">Футболка Puma</h5>
+        <p class="card-text">Покупайте наши футболки уже сейчас, и вы получите свой заказ в кратчайшие сроки.</p>
+      </div>
+      <div class="card-footer text-center">
+        <a asp-controller="Car" asp-action="GetCars" class="card-link">Список одежды</a>
+      </div>
+    </div>
+  </div>
 </div>
 
+  <div style="padding: 10px;"></div>
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Основные категории одежды</h5>
+    <p class="card-text">
+      Мода изобретательна и неутомима. Но есть в ней ядро, остающееся неизменным. Это классификация одежды – основа основ любого стиля, каждой модной коллекции и торгового ассортимента.
+      Покупатель должен хорошо ориентироваться в онлайн-каталогах одежды.
+      Их же составляют, опираясь на общепринятые категории, типы и виды одежды – так что без «ликбеза» никак не обойтись.
+    </p>
+    <a href="#" class="card-link">Card link</a>
+    <a href="#" class="card-link">Another link</a>
+  </div>
+</div>
+
+<div style="padding: 10px;"></div>
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Категории одежды в нашем магазине</h5>
+  </div>
+  <ul class="list-group list-group-flush" id="ulListId">
+    <li class="list-group-item">Фтуболки</li>
+    <li class="list-group-item">Куртки</li>
+    <li class="list-group-item">Штаны</li>
+    <li class="list-group-item">Трусы</li>
+    <li class="list-group-item">Головные уборы</li>
+    <li class="list-group-item">Рубашки</li>
+  </ul>
+  <div class="card-body">
+    <button class="btn btn-danger" id="btnHideId">Скрыть</button>
+    <button class="btn btn-primary" id="btnShowId">Показать</button>
+  </div>
+</div>
+
+@section pageScripts
+{
+  <script>
+    $('#btnHideId').click(function(){
+      $('#ulListId').hide(2000);
+    });
+    
+    $('#btnShowId').click(function () {
+      $('#ulListId').show(2000);
+    });
+  </script>
+}

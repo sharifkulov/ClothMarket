@@ -18,6 +18,7 @@
   <ItemGroup>
     <ProjectReference Include="..\ClothMarket.DAL\ClothMarket.DAL.csproj" />
     <ProjectReference Include="..\ClothMarket.Domain\ClothMarket.Domain.csproj" />
+    <ProjectReference Include="..\ClothMarket.Service\ClothMarket.Service.csproj" />
   </ItemGroup>
 
 </Project>
